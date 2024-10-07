@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DashboardComponent} from "@app/routes/home/dashboard/dashboard.component";
-import {NotFoundComponent} from "@app/routes/not-found/not-found.component";
+import {DashboardComponent} from "../home/dashboard/dashboard.component";
+import {NotFoundComponent} from "../not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '', pathMatch: 'full'},

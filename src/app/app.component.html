@@ -1,9 +1,14 @@
-<main class="bg-white dark:bg-gray-900">
-  <section class="content bg-white dark:bg-gray-900">
+<main>
+  <button (click)="toggleDarkMode()">Basculer le mode sombre</button>
+  <div *ngIf="loaded"
+       class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+    <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"></div>
+  </div>
+  <div class="flex h-screen overflow-hidden">
     <app-sidebar/>
-    <section class="ml-72.5">
+    <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
       <app-header/>
       <router-outlet></router-outlet>
-    </section>
-  </section>
+    </div>
+  </div>
 </main>
