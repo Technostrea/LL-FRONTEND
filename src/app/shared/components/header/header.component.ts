@@ -1,34 +1,33 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {NgClass, NgIf} from "@angular/common";
+import {Component, HostListener, inject, OnInit} from '@angular/core';
+import {JsonPipe, NgClass, NgIf} from "@angular/common";
+import {BrowserStorageService} from "@app/shared/utils/browser-storage/browser-storage.service";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     NgClass,
-    NgIf
+    NgIf,
+    JsonPipe
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   notifying = true;
   darkMode = false;
   sidebarToggle = false;
   dropdownOpen = false;
+  protected browserStorageService = inject(BrowserStorageService);
 
-  toggleSidebar() {
-    this.sidebarToggle = !this.sidebarToggle;
+  toggleDarkMode() {
+    this.browserStorageService.updateDarkMode();
   }
 
   closeDropdownOutside() {
     this.dropdownOpen = false;
   }
 
-  toggleDarkMode() {
-    this.darkMode = !this.darkMode;
-    localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
-  }
 
   toggleDropdown($event: MouseEvent) {
     this.dropdownOpen = !this.dropdownOpen;
@@ -39,10 +38,6 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit() {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode) {
-      this.darkMode = JSON.parse(savedDarkMode);
-    }
   }
 
   // Écoute les clics globaux pour fermer le dropdown si le clic est en dehors
