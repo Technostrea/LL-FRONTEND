@@ -1,0 +1,42 @@
+<section class="sticky top-4 container mx-auto my-10 px-4 md:px-0">
+  <!-- Header pour mobile avec un bouton pour afficher/masquer les filtres -->
+  <div class="flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow-md md:hidden">
+    <h2 class="text-xl font-semibold">Bien trouvé</h2>
+    <button id="filterToggle" class="text-gray-700 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Search Filters : cachés par défaut sur mobile -->
+  <div id="searchFilters" class="hidden md:block bg-gray-100 p-6 rounded-lg shadow-md mt-4 md:mt-0">
+    <h2 class="text-xl font-semibold mb-4">Filtrer les résultats</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label class="block mb-2">Emplacement</label>
+        <input type="text" id="locationFilter" class="w-full p-2 border border-gray-300 rounded" />
+      </div>
+      <div>
+        <label class="block mb-2">Type de bien</label>
+        <select id="typeFilter" class="w-full p-2 border border-gray-300 rounded">
+          <option value="">Tous types</option>
+          <option value="apartment">Appartement</option>
+          <option value="house">Maison</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-2">Loyer (Max)</label>
+        <input type="range" id="priceSlider" min="0" max="10000" step="100" value="5000" class="w-full" />
+        <div class="flex justify-between">
+          <span>0 €</span>
+          <span id="priceValue">5000 €</span> <!-- Affiche la valeur sélectionnée -->
+          <span>10 000 €</span>
+        </div>
+      </div>
+    </div>
+    <button id="searchBtn" class="mt-4 w-full md:w-auto bg-[#BD2949] text-white p-2 rounded hover:bg-red-600">
+      Rechercher
+    </button>
+  </div>
+</section>
