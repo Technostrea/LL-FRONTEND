@@ -10,6 +10,7 @@ import {
   withPreloading,
   withViewTransitions
 } from "@angular/router";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +25,6 @@ export const appConfig: ApplicationConfig = {
         }
       )),
     provideAnimations(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch()), provideAnimationsAsync(),
   ]
 };
