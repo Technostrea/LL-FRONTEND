@@ -1,0 +1,11 @@
+<div class="bg-white shadow-md rounded-lg overflow-hidden">
+  <img src="{{property.imageUrl}}" alt="${property.title}" class="w-full h-48 object-cover" />
+  <div class="p-4">
+    <h3 class="text-lg font-semibold">{{property.title}}</h3>
+    <p class="text-gray-600">${{property.city}}</p>
+    <p class="text-gray-800 mt-2 font-bold">${{property.price}} €/mois</p>
+    <a [routerLink]="[property.id]">
+      <button class="mt-4 bg-[#BD2949] text-white p-2 rounded hover:bg-red-600">Voir détails</button>
+    </a>
+  </div>
+</div>

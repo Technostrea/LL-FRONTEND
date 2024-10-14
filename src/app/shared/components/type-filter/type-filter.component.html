@@ -1,0 +1,9 @@
+<div>
+  <label class="block mb-2">Type de bien</label>
+  <select class="w-full p-2 border border-gray-300 rounded">
+    <option value="">Tous types</option>
+    @for (typeBien of typeBiens; track typeBien) {
+      <option [value]="typeBien">{{ typeBien }}</option>
+    }
+  </select>
+</div>

@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   darkMode: 'class',
@@ -9,15 +11,23 @@ module.exports = {
     screens: {
       '2xsm': '375px',
       xsm: '425px',
-      '3xl': '2000px'
+      '3xl': '2000px',
+      ...defaultTheme.screens,
     },
     extend: {
       colors: {
         current: 'currentColor',
         transparent: 'transparent',
         white: '#FFFFFF',
-        black: '#1C2434',
-        'black-2': '#010101',
+        black: {
+          ...colors.black,
+          DEFAULT: '#1C2434',
+          2: '#010101',
+        },
+        red: {
+          ...colors.red,
+          DEFAULT: '#FB5454',
+        },
         body: '#64748B',
         bodydark: '#AEB7C0',
         bodydark1: '#DEE4EE',
@@ -25,10 +35,13 @@ module.exports = {
         primary: '#3C50E0',
         secondary: '#80CAEE',
         stroke: '#E2E8F0',
-        gray: '#EFF4FB',
+        gray: {
+          ...colors.gray,
+          DEFAULT: '#EFF4FB',
+          2: '#F7F9FC',
+          3: '#FAFAFA',
+        },
         graydark: '#333A48',
-        'gray-2': '#F7F9FC',
-        'gray-3': '#FAFAFA',
         whiten: '#F1F5F9',
         whiter: '#F5F7FD',
         boxdark: '#24303F',
@@ -36,15 +49,18 @@ module.exports = {
         strokedark: '#2E3A47',
         'form-strokedark': '#3d4d60',
         'form-input': '#1d2a39',
-        'meta-1': '#DC3545',
-        'meta-2': '#EFF2F7',
-        'meta-3': '#10B981',
-        'meta-4': '#313D4A',
-        'meta-5': '#259AE6',
-        'meta-6': '#FFBA00',
-        'meta-7': '#FF6766',
-        'meta-8': '#F0950C',
-        'meta-9': '#E5E7EB',
+        meta: {
+          1: '#DC3545',
+          2: '#EFF2F7',
+          3: '#10B981',
+          4: '#313D4A',
+          5: '#259AE6',
+          6: '#FFBA00',
+          7: '#FF6766',
+          8: '#F0950C',
+          9: '#E5E7EB',
+          10: '#0FADCF',
+        },
         success: '#219653',
         danger: '#D34053',
         warning: '#FFA70B',
@@ -209,7 +225,7 @@ module.exports = {
       content: {
         'icon-copy': 'url("../images/icon/icon-copy-alt.svg")',
       },
-      transitionProperty: { width: 'width', stroke: 'stroke' },
+      transitionProperty: {width: 'width', stroke: 'stroke'},
       borderWidth: {
         6: '6px',
       },
@@ -235,39 +251,39 @@ module.exports = {
       },
       keyframes: {
         linspin: {
-          '100%': { transform: 'rotate(360deg)' },
+          '100%': {transform: 'rotate(360deg)'},
         },
         easespin: {
-          '12.5%': { transform: 'rotate(135deg)' },
-          '25%': { transform: 'rotate(270deg)' },
-          '37.5%': { transform: 'rotate(405deg)' },
-          '50%': { transform: 'rotate(540deg)' },
-          '62.5%': { transform: 'rotate(675deg)' },
-          '75%': { transform: 'rotate(810deg)' },
-          '87.5%': { transform: 'rotate(945deg)' },
-          '100%': { transform: 'rotate(1080deg)' },
+          '12.5%': {transform: 'rotate(135deg)'},
+          '25%': {transform: 'rotate(270deg)'},
+          '37.5%': {transform: 'rotate(405deg)'},
+          '50%': {transform: 'rotate(540deg)'},
+          '62.5%': {transform: 'rotate(675deg)'},
+          '75%': {transform: 'rotate(810deg)'},
+          '87.5%': {transform: 'rotate(945deg)'},
+          '100%': {transform: 'rotate(1080deg)'},
         },
         'left-spin': {
-          '0%': { transform: 'rotate(130deg)' },
-          '50%': { transform: 'rotate(-5deg)' },
-          '100%': { transform: 'rotate(130deg)' },
+          '0%': {transform: 'rotate(130deg)'},
+          '50%': {transform: 'rotate(-5deg)'},
+          '100%': {transform: 'rotate(130deg)'},
         },
         'right-spin': {
-          '0%': { transform: 'rotate(-130deg)' },
-          '50%': { transform: 'rotate(5deg)' },
-          '100%': { transform: 'rotate(-130deg)' },
+          '0%': {transform: 'rotate(-130deg)'},
+          '50%': {transform: 'rotate(5deg)'},
+          '100%': {transform: 'rotate(-130deg)'},
         },
         rotating: {
-          '0%, 100%': { transform: 'rotate(360deg)' },
-          '50%': { transform: 'rotate(0deg)' },
+          '0%, 100%': {transform: 'rotate(360deg)'},
+          '50%': {transform: 'rotate(0deg)'},
         },
         topbottom: {
-          '0%, 100%': { transform: 'translate3d(0, -100%, 0)' },
-          '50%': { transform: 'translate3d(0, 0, 0)' },
+          '0%, 100%': {transform: 'translate3d(0, -100%, 0)'},
+          '50%': {transform: 'translate3d(0, 0, 0)'},
         },
         bottomtop: {
-          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
-          '50%': { transform: 'translate3d(0, -100%, 0)' },
+          '0%, 100%': {transform: 'translate3d(0, 0, 0)'},
+          '50%': {transform: 'translate3d(0, -100%, 0)'},
         },
       },
       animation: {
@@ -289,5 +305,3 @@ module.exports = {
   },
   plugins: [],
 }
-
-

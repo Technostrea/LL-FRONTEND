@@ -1,0 +1,31 @@
+<div>
+  <label class="block mb-2">Emplacement</label>
+  <select [formControl]="locationControl" multiple class="w-full p-2 border border-gray-300 rounded">
+    @for (city of cities; track city.name) {
+      <optgroup [label]="city.name">
+        @for (district of city.districts; track district) {
+          <option [value]="district">{{ district }}</option>
+        }
+        @empty {
+          <option disabled>Aucun quartier disponible</option>
+        }
+      </optgroup>
+    }
+    @empty {
+      <option disabled>Aucune ville disponible</option>
+    }
+  </select>
+</div>
+
+<div class="mt-4">
+  <h3>Quartiers sélectionnés :</h3>
+  <p>
+    @for (location of getSelectedLocations(); track location) {
+      <span>{{ location }}</span>,
+    }
+    @empty {
+      <span>Aucun quartier sélectionné.</span>
+    }
+  </p>
+</div>
+

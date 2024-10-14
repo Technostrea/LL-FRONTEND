@@ -1,0 +1,20 @@
+<main [ngClass]="{'dark text-bodydark bg-boxdark-2':browserStorageService.darkModeSignal()}" >
+  @defer{
+
+    <div class="flex h-screen overflow-hidden">
+      <app-sidebar/>
+      <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        <app-header/>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  } @placeholder (minimum 500ms) {
+
+    <div class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+      <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"></div>
+    </div>
+  }
+
+</main>
+
