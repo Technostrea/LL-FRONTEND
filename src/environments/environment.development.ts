@@ -13,8 +13,8 @@ export const environment = {
       DELETE_STORE_IMAGE: (id: string) => `/properties/${id}/images`,
     },
     auth: {
-      LOGIN: `/login`,
-      REGISTER: `/register`,
+      LOGIN: `/auth/login`,
+      REGISTER: `/auth/register`,
       LOGOUT: `/logout`,
       FORGOT_PASSWORD: `/forgot-password`,
       RESET_PASSWORD: `/reset-password`,

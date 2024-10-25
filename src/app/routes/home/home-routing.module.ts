@@ -6,10 +6,9 @@ import {ApartmentListComponent} from "@app/routes/home/apartment-list/apartment-
 import {ApartmentDetailComponent} from "@app/routes/home/apartment-detail/apartment-detail.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
-  {path: 'location', redirectTo: ''},
+  {path: '', redirectTo: 'location', pathMatch: 'full'},
   {
-    path: '', component: HomeComponent, title: 'Location',
+    path: 'location', component: HomeComponent, title: 'Location',
     children: [
       {
         path: '',
@@ -23,6 +22,7 @@ const routes: Routes = [
       },
     ]
   },
+  {path: 'location', redirectTo: ''},
   {path: 'not-found', title: 'Page non trouvée', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

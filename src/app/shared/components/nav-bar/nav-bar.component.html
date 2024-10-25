@@ -1,10 +1,11 @@
 <nav class="bg-white shadow-md py-4">
   <div class="container mx-auto flex justify-between items-center">
-    <a [routerLink]="[]" class="text-2xl font-bold text-[#BD2949]" >Louka-Loca</a>
+    <a [routerLink]="['']" class="text-2xl font-bold text-[#BD2949]" >Louka-Loca</a>
     <div class="hidden md:flex"> <!-- Cache le menu sur petits écrans -->
-      <a [routerLink]="[]" class="text-gray-700 hover:text-[#BD2949] mx-4">Accueil</a>
+      <a [routerLink]="['']" class="text-gray-700 hover:text-[#BD2949] mx-4">Accueil</a>
       <a [routerLink]="[]" class="text-gray-700 hover:text-[#BD2949] mx-4">Propriétaires</a>
       <a [routerLink]="[]" class="text-gray-700 hover:text-[#BD2949] mx-4">Contact</a>
+      <a [routerLink]="['/auth']" class="text-gray-700 hover:text-[#BD2949] mx-4">Se connecter</a>
     </div>
     <!-- Menu hamburger pour petits écrans -->
     <div class="md:hidden">
@@ -18,8 +19,9 @@
   </div>
   <!-- Menu mobile -->
   <div id="mobileMenu" class="hidden md:hidden">
-    <a [routerLink]="[]" class="block text-gray-700 hover:text-[#BD2949] mx-4 py-2">Accueil</a>
+    <a [routerLink]="['']" class="block text-gray-700 hover:text-[#BD2949] mx-4 py-2">Accueil</a>
     <a [routerLink]="[]" class="block text-gray-700 hover:text-[#BD2949] mx-4 py-2">Propriétaires</a>
     <a [routerLink]="[]" class="block text-gray-700 hover:text-[#BD2949] mx-4 py-2">Contact</a>
+    <a [routerLink]="['/auth']" class="block text-gray-700 hover:text-[#BD2949] mx-4 py-2">Se connecter</a>
   </div>
 </nav>

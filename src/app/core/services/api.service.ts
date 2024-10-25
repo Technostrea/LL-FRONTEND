@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { environment } from '@env/environment.development';
+import {environment} from '@env/environment.development';
+import {Observable} from "rxjs";
+import {ResponeApiType} from "@app/shared/models/respone-api-type";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,8 @@ export class ApiService {
     return this.http.get<T>(`${this.baseApi}${path}`);
   }
 
-  post<T>(path: string, body: any) {
-    return this.http.post<T>(`${this.baseApi}${path}`, body);
+  post<T>(path: string, body: any): Observable<ResponeApiType<T>> {
+    return this.http.post<ResponeApiType<T>>(`${this.baseApi}${path}`, body);
   }
 
   put<T>(path: string, body: any) {

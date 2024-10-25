@@ -1,8 +1,8 @@
-import { ApplicationConfig } from '@angular/core';
+import {ApplicationConfig} from '@angular/core';
 
-import { routes } from './app.routes';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import {routes} from './app.routes';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
 import {
   PreloadAllModules,
   provideRouter,
@@ -10,7 +10,8 @@ import {
   withPreloading,
   withViewTransitions,
 } from '@angular/router';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {authInterceptor} from "@app/core/interceptors/auth/auth.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,7 +25,12 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideAnimations(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(),
+      withInterceptors([
+          authInterceptor
+        ]
+      )
+    ),
     provideAnimationsAsync(),
   ],
 };
