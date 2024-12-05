@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {PropertyType} from '@app/shared/models/property-type.js';
-import {ResponeApiType} from '@app/shared/models/respone-api-type.js';
+import {ResponseApiType} from '@app/shared/models/response-api-type.js';
 import {environment} from '@env/environment.development';
 import {Observable} from 'rxjs';
 import {ApiService} from "@app/core/services/api.service";
@@ -14,11 +14,11 @@ export class PropertyService {
   constructor(private http: ApiService) {
   }
 
-  getProperties(): Observable<ResponeApiType<PropertyType[]>> {
-    return this.http.get<ResponeApiType<PropertyType[]>>(this.propertiesEndPoint.GET_ALL_PROPERTY);
+  getProperties(): Observable<ResponseApiType<PropertyType[]>> {
+    return this.http.get<ResponseApiType<PropertyType[]>>(this.propertiesEndPoint.GET_ALL_PROPERTY);
   }
 
-  getShowProperty(id: string): Observable<ResponeApiType<PropertyType>> {
-    return this.http.get<ResponeApiType<PropertyType>>(this.propertiesEndPoint.GET_SHOW_PROPERTY(id));
+  getShowProperty(id: string): Observable<ResponseApiType<PropertyType>> {
+    return this.http.get<ResponseApiType<PropertyType>>(this.propertiesEndPoint.GET_SHOW_PROPERTY(id));
   }
 }
