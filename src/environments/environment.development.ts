@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: import.meta.env.NG_APP_API_BASE_URL,
+  // apiUrl: import.meta.env.NG_APP_API_BASE_URL,
+  apiUrl: 'http://localhost/api/v1',
   endpoints: {
     properties: {
       GET_ALL_PROPERTY: `/properties`,
@@ -21,7 +22,7 @@ export const environment = {
       VERIFY_EMAIL: (id: string, hash: string) => `/verify-email/${id}/${hash}`,
     },
     favorites: {
-      GET_ALL_COUNT: `/favorites`,// REVOIR LOGIQUE BACK
+      GET_ALL_COUNT: `/favorites`, // REVOIR LOGIQUE BACK
       POST_ADD_FAVORITE: (property_id: string) => `/favorites/${property_id}`,
       DELETE_FAVORITE: (property_id: string) => `/favorites/${property_id}`,
     },
@@ -31,6 +32,6 @@ export const environment = {
       GET_SHOW_AGENCY: (id: string) => `/agencies/${id}`,
       UPDATED_AGENCY: (id: string) => `/agencies/${id}`,
       DELETE_AGENCY: (id: string) => `/agencies/${id}`,
-    }
+    },
   },
 };

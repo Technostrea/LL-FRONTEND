@@ -1,0 +1,29 @@
+services:
+  louka-loca-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: louka-loca-front:1.0.0
+    container_name: louka-loca-front
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      - APP_NAME=louka-loca-front
+      - ENVIRONMENT=production
+      - NG_VERSION=17
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.louka-loca-front.rule=Host(`${DOMAINE_NAME}`)
+      - traefik.http.routers.louka-loca-front.entrypoints=web
+      - traefik.http.routers.louka-loca-front-secure.rule=Host(`${DOMAINE_NAME}`)
+      - traefik.http.routers.louka-loca-front-secure.entrypoints=websecure
+      - traefik.http.routers.louka-loca-front-secure.tls.certresolver=letsencrypt
+      - traefik.http.services.louka-loca-front.loadbalancer.server.port=80
+    networks:
+      - traefik_network
+
+networks:
+  traefik_network:
+    external: true
