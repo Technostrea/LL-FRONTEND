@@ -6,7 +6,7 @@ services:
     image: louka-loca-front:1.0.0
     container_name: louka-loca-front
     ports:
-      - "80:80"
+      - "8100:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     environment:
